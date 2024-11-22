@@ -23,6 +23,9 @@ def predict():
         "probability": float(probability)
     })
 
-# 确保 Flask 应用能正常运行
 if __name__ == '__main__':
-    app.run(debug=True)  # debug=True 可以帮助我们调试问题
+    import os
+    # 从 Render 的环境变量中获取端口
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
+
